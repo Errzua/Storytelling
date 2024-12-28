@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Magical Stories</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+      /* General Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      /* Container Styles */
+      #stories {
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        padding: 30px;
+        max-width: 1200px;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        text-align: center;
+      }
+
+      /* Headings */
+      h2,
+      h3 {
+        color: #1dbf73;
+        margin-bottom: 20px;
+      }
+
+      /* Genre Buttons */
+      .genre-filters button {
+        background-color: #1dbf73;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 500;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .genre-filters button:hover {
+        background-color: #19a463;
+      }
+
+      /* Story List */
+      .story-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .read-more {
+        background-color: #1dbf73;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+      }
+
+      .read-more:hover {
+        background-color: #19a463;
+      }
+
+      /* Submission Guidelines */
+      .submission-guidelines {
+        margin: 30px 0;
+        font-size: 1.2em;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        article {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="menu-links">
+          {% if session.get('username') %}
+          <a href="{{ url_for('home') }}"><button>Home</button></a>
+          <a href="{{ url_for('about') }}"><button>About Us</button></a>
+          {% else %}
+          <a href="{{ url_for('story') }}"><button>Stories</button></a>
+          {% endif %}
+          <a href="{{ url_for('resources') }}"><button>Resources</button></a>
+          <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+          <a href="{{ url_for('contact') }}"><button>Contact Us</button></a>
+        </div>
+        <h1 style="color: #333">Welcome to the Storytelling</h1>
+      </div>
+    </header>
+    <section id="stories">
+      <h2>Our Magical Stories</h2>
+      <p>
+        Welcome to the land of imagination! Explore exciting adventures,
+        friendly animals, and magical tales just for you!
+      </p>
+
+      <div class="genre-filters">
+        <h3>Choose Your Adventure:</h3>
+        <button>🌟 Fairy Tales</button>
+        <button>🐾 Animal Adventures</button>
+        <button>🚀 Space Journeys</button>
+        <button>🏰 Kingdom Stories</button>
+      </div>
+
+      <div class="featured-stories">
+        <h3>Featured Stories</h3>
+        <div class="story-list">
+          <article>
+            <h4>🌈 The Rainbow Unicorn</h4>
+            <p>By Sparkle Writer</p>
+            <p>
+              Join a magical unicorn on a quest to find the lost colors of the
+              rainbow!
+            </p>
+            <a href="#" class="read-more">Read Me!</a>
+          </article>
+          <article>
+            <h4>🐻 Benny the Brave Bear</h4>
+            <p>By Nature Lover</p>
+            <p>
+              Follow Benny as he discovers the wonders of the forest and makes
+              new friends!
+            </p>
+            <a href="#" class="read-more">Read Me!</a>
+          </article>
+        </div>
+      </div>
+      <div class="submission-guidelines">
+        <h3>Share Your Story!</h3>
+        <p>
+          Do you have a magical story to tell? Follow our
+          <a href="#" style="color: #19a463">easy guidelines</a> to share your
+          adventure!
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

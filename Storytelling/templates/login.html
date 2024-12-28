@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Storytelling</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+        /* Body Styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fHN0b3J5JTIwaW1hZ2V8ZW58MHx8fHwxNjYyMjY0NzY0&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Wrapper Styles */
+        .wrapper {
+            max-width: 400px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Heading Styles */
+        .wrapper h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #4070f4;
+            margin-bottom: 20px;
+        }
+
+        /* Input Box Styles */
+        .input-box {
+            margin: 20px 0;
+        }
+
+        .input-box input {
+            height: 50px;
+            width: 100%;
+            padding: 0 15px;
+            font-size: 16px;
+            border: 2px solid #c7bebe;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .input-box input:focus {
+            border-color: #4070f4;
+            outline: none;
+        }
+
+        /* Button Styles */
+        .input-box.button input {
+            background: #4070f4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .input-box.button input:hover {
+            background: #0e4bf1;
+        }
+
+        /* Text Styles */
+        .text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .text a {
+            color: #4070f4;
+            text-decoration: none;
+        }
+
+        .text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Illustration Styles */
+        .illustration {
+            margin: 20px 0;
+        }
+
+        .illustration img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <h2>Login to Your Story</h2>
+        <div class="illustration">
+            <img src="https://img.icons8.com/ios/452/open-book.png" alt="Storybook Illustration">
+        </div>
+        <form action="/login" method="POST">
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" required />
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" required />
+            </div>
+            <div class="input-box button">
+                <input type="submit" value="Login" />
+            </div>
+        </form>
+        <div class="text">
+            <p>Don't have an account? <a href="register">Register now</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

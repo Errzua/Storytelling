@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Resources for Young Storytellers</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+      body {
+        background-size: cover;
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h2 {
+        color: #1dbf73;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        color: #ffd700;
+        font-size: 2em;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin: 10px 0;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 15px 0;
+        font-size: 1.1em;
+      }
+
+      a {
+        color: #1dbf73;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #19a463;
+      }
+
+      .resource-category {
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      a[href="{{ url_for('home') }}"] {
+        display: inline-block;
+        background-color: #1dbf73;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1.1em;
+        margin-top: 30px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      a[href="{{ url_for('home') }}"]:hover {
+        background-color: #19a463;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+
+        h2 {
+          font-size: 2em;
+        }
+
+        h3 {
+          font-size: 1.6em;
+        }
+
+        .resource-category {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Resources for Young Storytellers</h2>
+    <p>
+      Welcome to our collection of resources designed to help you unleash your
+      creativity and become a fantastic storyteller!
+    </p>
+
+    <div class="resource-category">
+      <h3>Storytelling Techniques</h3>
+      <ul>
+        <li>
+          <a href="https://www.storytellingwithchildren.com/" target="_blank"
+            >Storytelling Techniques</a
+          >
+          - Tips and techniques for telling captivating stories.
+        </li>
+        <li>
+          <a href="https://www.writingprompts.com/" target="_blank"
+            >Story Prompts</a
+          >
+          - Fun prompts to inspire your next story.
+        </li>
+      </ul>
+    </div>
+
+    <div class="resource-category">
+      <h3>Writing Tools</h3>
+      <ul>
+        <li>
+          <a href="https://www.storybird.com/" target="_blank">Storybird</a> - A
+          platform for creating and sharing stories with illustrations.
+        </li>
+        <li>
+          <a href="https://www.grammarly.com/" target="_blank">Grammarly</a> - A
+          tool to help with spelling and grammar.
+        </li>
+      </ul>
+    </div>
+
+    <div class="resource-category">
+      <h3>Illustration Resources</h3>
+      <ul>
+        <li>
+          <a href="https://www.pixabay.com/" target="_blank">Pixabay</a> - Free
+          images and illustrations for your stories.
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/results?search_query=drawing+tutorials"
+            target="_blank"
+            >Drawing Tutorials</a
+          >
+          - Learn how to illustrate your own stories.
+        </li>
+      </ul>
+    </div>
+
+    <div class="resource-category">
+      <h3>Reading Resources</h3>
+      <ul>
+        <li>
+          <a href="https://www.audible.com/" target="_blank">Audible Kids</a> -
+          A selection of audiobooks for children.
+        </li>
+        <li>
+          <a href="https://www.storylineonline.net/" target="_blank"
+            >Storyline Online</a
+          >
+          - Videos of actors reading children's books.
+        </li>
+      </ul>
+    </div>
+
+    <div class="resource-category">
+      <h3>Interactive Apps</h3>
+      <ul>
+        <li>
+          <a href="https://www.toontastic.com/" target="_blank">Toontastic</a> -
+          An app for creating animated stories.
+        </li>
+        <li>
+          <a href="https://bookcreator.com/" target="_blank">Book Creator</a> -
+          An app for creating and publishing your own books.
+        </li>
+      </ul>
+    </div>
+
+    <div class="resource-category">
+      <h3>Competitions and Challenges</h3>
+      <ul>
+        <li>
+          <a href="https://www.kidlit.com/" target="_blank"
+            >KidLit Competitions</a
+          >
+          - Information on writing competitions for children.
+        </li>
+        <li>
+          <a href="https://www.writingchallenges.com/" target="_blank"
+            >Writing Challenges</a
+          >
+          - Participate in fun writing challenges.
+        </li>
+      </ul>
+    </div>
+
+    <div class="resource-category">
+      <h3>Parent and Teacher Resources</h3>
+      <ul>
+        <li>
+          <a href="https://www.parenting.com/" target="_blank"
+            >Parenting Resources</a
+          >
+          - Guides for parents to encourage storytelling.
+        </li>
+        <li>
+          <a href="https://www.teachingresources.com/" target="_blank"
+            >Teaching Resources</a
+          >
+          - Tools for educators to inspire young writers.
+        </li>
+      </ul>
+    </div>
+
+    <div class="resource-category">
+      <h3>Community and Support</h3>
+      <ul>
+        <li>
+          <a href="https://www.localstorytellingclubs.com/" target="_blank"
+            >Storytelling Clubs</a
+          >
+          - Find local clubs to share your stories.
+        </li>
+        <li>
+          <a href="https://www.kidswritingforums.com/" target="_blank"
+            >Kids Writing Forums</a
+          >
+          - Join discussions and share your work.
+        </li>
+      </ul>
+    </div>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+  </body>
+</html>

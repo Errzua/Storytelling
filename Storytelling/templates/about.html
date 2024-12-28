@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>About Us - Storytelling Website</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue background */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for children */
+            color: #333; /* Dark text color for readability */
+            text-align: center; /* Centered text */
+            padding: 20px; /* Padding for the body */
+        }
+
+        h2 {
+            color: #ff6347; /* Tomato color for headings */
+            font-size: 2.5em; /* Larger font size for headings */
+            margin-bottom: 20px; /* Space below headings */
+        }
+
+        h3 {
+            color: #ff4500; /* Darker tomato color for subheadings */
+            font-size: 2em; /* Font size for subheadings */
+            margin-top: 30px; /* Space above subheadings */
+        }
+
+        p {
+            font-size: 1.2em; /* Slightly larger font for paragraphs */
+            margin: 10px 0; /* Space above and below paragraphs */
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+        }
+
+        li {
+            font-size: 1.1em; /* Font size for list items */
+            margin: 5px 0; /* Space between list items */
+        }
+
+        .team-member {
+            margin: 20px; /* Space around team members */
+            display: inline-block; /* Inline block for team member cards */
+            width: 200px; /* Fixed width for team member cards */
+            text-align: center; /* Centered text */
+        }
+
+        .team-member img {
+            width: 100%; /* Full width images */
+            border-radius: 50%; /* Circular images */
+        }
+
+        .testimonial {
+            margin: 20px; /* Space around testimonials */
+            font-style: italic; /* Italic text for testimonials */
+        }
+
+        .call-to-action {
+            margin: 30px 0; /* Space around call to action */
+            font-size: 1.5em; /* Larger font for call to action */
+            color: #ff6347; /* Tomato color for emphasis */
+        }
+
+        a {
+            color: #ff6347; /* Tomato color for links */
+            text-decoration: none; /* No underline */
+            font-weight: bold; /* Bold text for links */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+
+<h2>About Us</h2>
+<p>Welcome to our storytelling website, where imagination comes to life! We are dedicated to sharing stories and fostering creativity among young writers and storytellers.</p>
+
+<h3>Our Mission</h3>
+<p>Our mission is to inspire children to explore the world of storytelling, encouraging them to read, write, and share their own magical tales.</p>
+
+<h3>Who We Serve</h3>
+<p>We cater to children, parents, and educators, providing a safe and fun environment for creativity and learning.</p>
+
+<h3>Core Values</h3>
+<ul>
+    <li>Creativity</li>
+    <li>Inclusivity</li>
+    <li>Fun</li>
+    <li>Education</li>
+</ul>
+
+<h3>Meet the Team</h3>
+<div class="team-member">
+    <img src="team_member_1.jpg" alt="Team Member 1">
+    <h4>Jane Doe</h4>
+    <p>Storytelling Enthusiast</p>
+</div>
+<div class="team-member">
+    <img src="team_member_2.jpg" alt="Team Member 2">
+    <h4>John Smith</h4>
+    <p>Creative Writer</p>
+</div>
+
+<h3>How It Works</h3>
+<p>Children can explore our collection of stories, submit their own creations, and participate in fun activities designed to spark their imagination.</p>
+
+<h3>Community Engagement</h3>
+<p>We encourage children to get involved by submitting their stories, joining contests, and participating in community events that celebrate storytelling.</p>
+
+<h3>Testimonials</h3>
+<div class="testimonial ">
+    <p>"This website has helped me become a better storyteller!" - Emily, Age 10</p>
+</div>
+<div class="testimonial">
+    <p>"My kids love reading the stories and sharing their own!" - Sarah, Parent</p>
+</div>
+
+<h3 class="call-to-action">Join us in the adventure of storytelling! Explore our website and start creating today!</h3>
+
+<a href="{{ url_for('home') }}">Back to Home</a>
+
+</body>
+</html>

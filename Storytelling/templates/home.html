@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Home - Storytelling</title>
+    <style></style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/your-web-app-context/stories") // Adjust the URL based on your web app context
+          .then((response) => response.json())
+          .then((data) => {
+            const storyList = document.querySelector(".story-list");
+            storyList.innerHTML = ""; // Clear existing stories
+            data.forEach((story) => {
+              const li = document.createElement("li");
+              li.innerHTML = `<a href="#">${story.title}</a><p>${story.description}</p>`;
+              storyList.appendChild(li);
+            });
+          })
+          .catch((error) => console.error("Error loading stories:", error));
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="menu-links">
+          {% if session.get('username') %}
+          <a href="{{ url_for('about') }}"><button>About Us</button></a>
+          {% else %}
+          <a href="{{ url_for('story') }}"><button>Stories</button></a>
+          {% endif %}
+          <a href="{{ url_for('resources') }}"><button>Resources</button></a>
+          <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+          <a href="{{ url_for('contact') }}"><button>Contact Us</button></a>
+        </div>
+        <h1 style="color: #333">Welcome to the Storytelling</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="hero-section">
+        <h1>Discover Your Next Adventure</h1>
+        <div class="search-form">
+          <form
+            action="https://www.google.com/search"
+            method="GET"
+            target="_blank"
+          >
+            <input
+              type="text"
+              name="q"
+              placeholder="Search stories..."
+              required
+            />
+            <button class="search-btn" type="submit">Go</button>
+          </form>
+        </div>
+        <div class="featured">
+          <h2>Featured Stories of the Year</h2>
+          <div class="story-list">
+            <article>
+              <h4>🌈 The Rainbow Unicorn and The Wicked Robot</h4>
+              <p>By Sparkle Writer</p>
+              <p>
+                Join a magical unicorn on a quest to find the lost colors of the
+                rainbow!
+              </p>
+              <a
+                href="https://www.shortkidstories.com/story/rainbow-unicorn-and-the-wicked-robot/"
+                target="_blank"
+                class="read-more"
+                >Read Me!</a
+              >
+            </article>
+            <article>
+              <h4>🐻 Benny the Brave Bear</h4>
+              <p>By Nature Lover</p>
+              <p>
+                Follow Benny as he discovers the wonders of the forest and makes
+                new friends!
+              </p>
+              <a
+                href="https://www.storybooks.app/bedtime-stories/benny-the-brave-little-bear-mGREORXqPJ"
+                target="_blank"
+                class="read-more"
+                >Read Me!</a
+              >
+            </article>
+            <article>
+              <h4>🚀 Adventures in Space</h4>
+              <p>By Star Explorer</p>
+              <p>
+                Blast off with our young astronaut as they explore distant
+                planets!
+              </p>
+              <a
+                target="_blank"
+                href="https://www.vtaide.com/png/space.html"
+                class="read-more"
+                >Read Me!</a
+              >
+            </article>
+          </div>
+        </div>
+      </div>
+      <!-- browse all stories anchor, link to story.html -->
+      <a href="{{ url_for('story') }}" class="btn">Browse All Stories</a>
+    </div>
+  </body>
+</html>

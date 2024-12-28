@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Contact Us - Storytelling Website</title>
+    <style>
+      body {
+        background-color: rgba(0, 0, 0, 0.2); /* Light blue background */
+        font-family: "Comic Sans MS", cursive, sans-serif; /* Fun font for children */
+        color: #333; /* Dark text color for readability */
+        padding: 20px; /* Padding for the body */
+      }
+
+      h2 {
+        color: var(--main); /* Tomato color for headings */
+        font-size: 2.5em; /* Larger font size for headings */
+        margin-bottom: 20px; /* Space below headings */
+        text-align: center; /* Center the heading */
+      }
+
+      p {
+        font-size: 1.2em; /* Slightly larger font for paragraphs */
+        margin: 10px 0; /* Space above and below paragraphs */
+        text-align: center; /* Center text */
+      }
+
+      .container {
+        max-width: 800px; /* Restrict the width for better readability */
+        margin: 0 auto; /* Center container */
+        background: #fff; /* White background for contrast */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        padding: 20px; /* Padding inside the container */
+      }
+
+      .contact-info,
+      .contact-form {
+        margin-bottom: 30px; /* Space between sections */
+      }
+
+      .contact-info {
+        text-align: center; /* Center the contact information */
+      }
+
+      .contact-info a {
+        color: var(--main);
+        text-decoration: none; /* No underline */
+        font-weight: bold; /* Bold links */
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline; /* Underline on hover */
+      }
+
+      .contact-form form {
+        display: flex;
+        flex-direction: column; /* Stack form elements vertically */
+        align-items: center; /* Center form elements */
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%; /* Full width for form elements */
+        max-width: 600px; /* Restrict width for larger screens */
+        padding: 12px; /* Padding inside input fields */
+        margin: 10px 0; /* Space between form elements */
+        border: 1px solid #ccc; /* Light border */
+        border-radius: 5px; /* Rounded corners */
+        font-size: 1em; /* Consistent font size */
+      }
+
+      .contact-form button {
+        background-color: #ff6347; /* Tomato color for button */
+        color: #fff; /* White text */
+        padding: 12px 20px; /* Padding for button */
+        border: none; /* No border */
+        border-radius: 5px; /* Rounded corners */
+        font-size: 1.1em; /* Slightly larger text */
+        cursor: pointer; /* Pointer cursor */
+        transition: background-color 0.3s; /* Smooth transition effect */
+      }
+
+      .contact-form button:hover {
+        background-color: #e55347; /* Darker tomato on hover */
+      }
+
+      .back-link {
+        text-align: center; /* Center the back link */
+        margin-top: 20px; /* Space above the link */
+      }
+
+      .back-link a {
+        color: #ff6347; /* Tomato color for links */
+        text-decoration: none; /* No underline */
+        font-weight: bold; /* Bold text */
+      }
+
+      .back-link a:hover {
+        text-decoration: underline; /* Underline on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>
+        We'd love to hear from you! If you have any questions, feedback, or just
+        want to say hello, feel free to reach out!
+      </p>
+
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>
+          Email:
+          <a href="mailto:info@storytellingwebsite.com"
+            >info@storytellingwebsite.com</a
+          >
+        </p>
+        <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        <p>Follow us on social media:</p>
+        <p>
+          <a href="https://facebook.com/storytellingwebsite">Facebook</a> |
+          <a href="https://twitter.com/storytellingwebsite">Twitter</a> |
+          <a href="https://instagram.com/storytellingwebsite">Instagram</a>
+        </p>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form method="POST">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            required
+          />
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            rows="6"
+            required
+          ></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="back-link">
+      <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+  </body>
+</html>
