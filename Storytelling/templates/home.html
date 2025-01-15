@@ -29,17 +29,32 @@
   <body>
     <header>
       <div class="navbar">
+        <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="Logo" class="logo" />
         <div class="menu-links">
+          <a href="{{ url_for('profile') }}"><button> <span>Profile Info.</span></button></a>
           {% if session.get('username') %}
-          <a href="{{ url_for('about') }}"><button>About Us</button></a>
-          {% else %}
-          <a href="{{ url_for('story') }}"><button>Stories</button></a>
+          <a href="{{ url_for('story') }}"><button> <span>Stories</span></button></a>
+          <a href="{{ url_for('about') }}"><button><span>About Us</span></button></a>
           {% endif %}
-          <a href="{{ url_for('resources') }}"><button>Resources</button></a>
-          <a href="{{ url_for('logout') }}"><button>Logout</button></a>
-          <a href="{{ url_for('contact') }}"><button>Contact Us</button></a>
+          <a href="{{ url_for('resources') }}"><button> <span>Resources</span></button></a>
+          <a href="{{ url_for('contact') }}"><button> <span>Contact</span></button></a>
+          <a href="{{ url_for('logout') }}"><button><span>Logout</span></button></a>
         </div>
-        <h1 style="color: #333">Welcome to the Storytelling</h1>
+        <h1 class="catchy-header">Welcome to the Storytelling!</h1>
+
+        <style>
+          .catchy-header {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 20px;
+            color: #FF5733; /* Bright orange */
+            text-shadow: 2px 2px 4px #000; /* Soft shadow */
+            background: linear-gradient(90deg, #FFCC00, #FF5733); /* Gradient background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+          }
+        </style>
       </div>
     </header>
 
@@ -110,7 +125,23 @@
         </div>
       </div>
       <!-- browse all stories anchor, link to story.html -->
-      <a href="{{ url_for('story') }}" class="btn">Browse All Stories</a>
+      <a href="{{ url_for('story') }}"><button class="cssbuttons-io-button">
+        Browse All Stories
+        <div class="icon">
+          <svg
+            height="50"
+            width="50"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </div>
+      </button></a>
     </div>
   </body>
 </html>
