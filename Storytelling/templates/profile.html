@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fHN0b3J5JTIwaW1hZ2V8ZW58MHx8fHwxNjYyMjY0NzY0&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Container Styles */
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Headings */
+        h2 {
+            color: #1dbf73;
+            margin-bottom: 20px;
+        }
+
+        /* Profile Info */
+        .profile-info {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #fff;
+        }
+
+        /* Button Styles */
+        .button {
+            background-color: #1dbf73;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #19a463;
+        }
+        /* From Uiverse.io by adamgiebl */ 
+        .cssbuttons-io-button {
+        background: #a370f0;
+        color: white;
+        font-family: inherit;
+        padding: 0.35em;
+        padding-left: 1.2em;
+        font-size: 17px;
+        font-weight: 500;
+        border-radius: 0.9em;
+        border: none;
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        box-shadow: inset 0 0 1.6em -0.6em #714da6;
+        overflow: hidden;
+        position: relative;
+        height: 2.8em;
+        padding-right: 3.3em;
+        cursor: pointer;
+        }
+
+        .cssbuttons-io-button .icon {
+        background: white;
+        margin-left: 1em;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.2em;
+        width: 2.2em;
+        border-radius: 0.7em;
+        box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+        right: 0.3em;
+        transition: all 0.3s;
+        }
+
+        .cssbuttons-io-button:hover .icon {
+        width: calc(100% - 0.6em);
+        }
+
+        .cssbuttons-io-button .icon svg {
+        width: 1.1em;
+        transition: transform 0.3s;
+        color: #7b52b9;
+        }
+
+        .cssbuttons-io-button:hover .icon svg {
+        transform: translateX(0.1em);
+        }
+
+        .cssbuttons-io-button:active .icon {
+        transform: scale(0.95);
+        }
+
+        .logo {
+        width: 60px; /* Adjust width as needed */
+        height: auto; /* Maintain aspect ratio */
+        position: absolute; /* Position it in the upper left corner */
+        top: 20px; /* Adjust top spacing */
+        left: 20px; /* Adjust left spacing */
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Add shadow */
+        }
+
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="Logo" class="logo" />
+
+    <div class="container">
+        <h2>User Profile</h2>
+        <div class="profile-info">
+            <p><strong>Username:</strong> {{ user[0] }}</p>
+            <p><strong>Address:</strong> {{ user[1] }}</p>
+            <p><strong>Contact Number:</strong> {{ user[2] }}</p>
+            <p><strong>Age:</strong> {{ user[3] }}</p>
+            <p><strong>Grade Level:</strong> {{ user[4] }}</p>
+        </div>
+        <a href="{{ url_for('logout') }}" class="button">Logout</a>
+    </div>
+    <div class="back-link">
+        <a href="{{ url_for('home') }}"><button class="cssbuttons-io-button">
+            Back to Home
+            <div class="icon">
+              <svg
+                height="50"
+                width="50"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+          </button></a>
+      </div>
+</body>
+</html>
