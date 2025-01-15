@@ -101,6 +101,7 @@
     </style>
   </head>
   <body>
+    <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="Logo" class="logo" />
     <header>
       <div class="navbar">
         <div class="menu-links">
@@ -111,10 +112,23 @@
           <a href="{{ url_for('story') }}"><button>Stories</button></a>
           {% endif %}
           <a href="{{ url_for('resources') }}"><button>Resources</button></a>
-          <a href="{{ url_for('logout') }}"><button>Logout</button></a>
           <a href="{{ url_for('contact') }}"><button>Contact Us</button></a>
         </div>
-        <h1 style="color: #333">Welcome to the Storytelling</h1>
+        <h1 class="catchy-header">Welcome to the Storytelling!</h1>
+
+        <style>
+          .catchy-header {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 20px;
+            color: #FF5733; /* Bright orange */
+            text-shadow: 2px 2px 4px #000; /* Soft shadow */
+            background: linear-gradient(90deg, #FFCC00, #FF5733); /* Gradient background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+          }
+        </style>
       </div>
     </header>
     <section id="stories">
@@ -126,35 +140,51 @@
 
       <div class="genre-filters">
         <h3>Choose Your Adventure:</h3>
-        <button>🌟 Fairy Tales</button>
-        <button>🐾 Animal Adventures</button>
-        <button>🚀 Space Journeys</button>
-        <button>🏰 Kingdom Stories</button>
+        <a href="https://www.storyberries.com/category/fairy-tales/famous-fairy-tales/" target="_blank"><button>🌟 Fairy Tales</button></a>
+        <a href="https://www.oxfordowl.co.uk/for-home/find-a-book/brilliant-books/animal-stories" target="_blank"><button>🐾 Animal Adventures</button></a>
+        <a href="https://www.storyberries.com/category/space/" target="_blank"><button>🚀 Space Journeys</button></a>
+        <a href="https://freestoriesforkids.com/tales-for-kids/characters-and-situations/stories-about-kingdoms" target="_blank"><button>🏰 Kingdom Stories</button></a>
       </div>
 
       <div class="featured-stories">
         <h3>Featured Stories</h3>
         <div class="story-list">
           <article>
-            <h4>🌈 The Rainbow Unicorn</h4>
-            <p>By Sparkle Writer</p>
+            <h4>🐷 The 3 Little Pigs</h4>
+            <p>By Flora Annie Steel</p>
             <p>
-              Join a magical unicorn on a quest to find the lost colors of the
-              rainbow!
+              This story is featured in our Favorite Fairy Tales and Children's Stories.
             </p>
-            <a href="#" class="read-more">Read Me!</a>
+            <a href="https://americanliterature.com/childrens-stories/the-three-little-pigs" target="_blank">Read Me!</a>
           </article>
           <article>
-            <h4>🐻 Benny the Brave Bear</h4>
-            <p>By Nature Lover</p>
+            <h4>🦆 The Ugly Duckling</h4>
+            <p>Hans Christian Andersen</p>
             <p>
-              Follow Benny as he discovers the wonders of the forest and makes
+              Follow the Duckling as he discovers the wonders of the forest and makes
               new friends!
             </p>
-            <a href="#" class="read-more">Read Me!</a>
+            <a href="http://hca.gilead.org.il/ugly_duc.html" target="_blank" class="read-more">Read Me!</a>
           </article>
         </div>
       </div>
+      <a href="{{ url_for('home') }}"><button class="cssbuttons-io-button">
+        Back to Home
+        <div class="icon">
+          <svg
+            height="50"
+            width="50"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </div>
+      </button></a>
       <div class="submission-guidelines">
         <h3>Share Your Story!</h3>
         <p>
@@ -162,6 +192,8 @@
           <a href="#" style="color: #19a463">easy guidelines</a> to share your
           adventure!
         </p>
+      </div>
+      <div class="back-link">
       </div>
     </section>
   </body>
