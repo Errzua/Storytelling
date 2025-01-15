@@ -66,22 +66,6 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
 
-      a[href="{{ url_for('home') }}"] {
-        display: inline-block;
-        background-color: #1dbf73;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 1.1em;
-        margin-top: 30px;
-        text-decoration: none;
-        transition: background-color 0.3s;
-      }
-
-      a[href="{{ url_for('home') }}"]:hover {
-        background-color: #19a463;
-      }
-
       @media (max-width: 768px) {
         body {
           padding: 10px;
@@ -99,9 +83,19 @@
           padding: 15px;
         }
       }
+
+      .logo {
+        width: 60px; /* Adjust width as needed */
+        height: auto; /* Maintain aspect ratio */
+        position: absolute; /* Position it in the upper left corner */
+        top: 20px; /* Adjust top spacing */
+        left: 20px; /* Adjust left spacing */
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Add shadow */
+        }
     </style>
   </head>
   <body>
+    <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="Logo" class="logo" />
     <h2>Resources for Young Storytellers</h2>
     <p>
       Welcome to our collection of resources designed to help you unleash your
@@ -242,6 +236,22 @@
       </ul>
     </div>
 
-    <a href="{{ url_for('home') }}">Back to Home</a>
+    <a href="{{ url_for('home') }}"><button class="cssbuttons-io-button">
+      Back to Home
+      <div class="icon">
+        <svg
+          height="50"
+          width="50"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+    </button></a>
   </body>
 </html>
