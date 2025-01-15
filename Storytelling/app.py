@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+import pymysql
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Replace with a strong secret key
 
-# Dummy user data for authentication
-users = {
-    "admin": "password123",  # Replace with your own user data
-}
+# Database connection
+def get_db_connection():
+    return pymysql.connect(
+        host="localhost",
+        user="root",  # Default XAMPP username
+        password="",  # Default XAMPP password
+        database="storytelling"
+    )
 
 @app.route('/')
 def home():
@@ -20,12 +26,20 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # Check if the username and password are correct
-        if username in users and users[username] == password:
-            session['username'] = username  # Store the username in the session
-            return redirect(url_for('home'))
-        else:
-            return "Invalid username or password", 401  # Handle invalid login
+        connection = get_db_connection()
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT password FROM users WHERE username = %s", (username,))
+                user = cursor.fetchone()
+                if user and check_password_hash(user[0], password):  # Validate hashed password
+                    session['username'] = username
+                    return redirect(url_for('home'))
+        except Exception as e:
+            print(f"Error: {e}")
+        finally:
+            connection.close()
+
+        return "Invalid username or password", 401  # Handle invalid login
 
     return render_template('login.html')
 
@@ -34,10 +48,42 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if username in users:
-            return "Username already exists", 400
-        users[username] = password
-        return redirect(url_for('home'))
+        confirm_password = request.form['confirm_password']
+        address = request.form['address']
+        contact_no = request.form['contact_no']
+        age = request.form['age']
+        grade_level = request.form['grade_level']
+
+        if password != confirm_password:
+            return "Passwords do not match", 400
+
+        connection = get_db_connection()
+        try:
+            with connection.cursor() as cursor:
+                # Check if the username already exists
+                cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+                existing_user = cursor.fetchone()
+                if existing_user:
+                    return "Username already exists", 400
+
+                # Hash the password before saving it
+                hashed_password = generate_password_hash(password)
+
+                # Insert the new user into the database
+                cursor.execute("""
+                    INSERT INTO users (username, password, address, contact_no, age, grade_level)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                """, (username, hashed_password, address, contact_no, age, grade_level))
+                connection.commit()  # Commit the changes
+
+        except Exception as e:
+            print(f"Error: {e}")
+            return "An error occurred", 500  # Handle any errors
+        finally:
+            connection.close()  # Ensure the connection is closed
+
+        return redirect(url_for('login'))
+
     return render_template('register.html')
 
 @app.route('/logout')
@@ -51,6 +97,27 @@ def logout():
 #         return redirect(url_for('login'))
 #     story = next((s for s in all_stories if s['id'] == story_id), None)
 #     return render_template('story.html', story=story)
+
+@app.route('/profile')
+def profile():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    username = session['username']
+    connection = get_db_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT username, address, contact_no, age, grade_level FROM users WHERE username = %s", (username,))
+            user = cursor.fetchone()
+            if user:
+                return render_template('profile.html', user=user)
+            else:
+                return "User  not found", 404
+    except Exception as e:
+        print(f"Error: {e}")
+        return "An error occurred", 500
+    finally:
+        connection.close()
 
 @app.route('/about')
 def about():
