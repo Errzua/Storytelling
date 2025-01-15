@@ -42,7 +42,7 @@
             margin: 20px 0;
         }
 
-        .input-box input {
+        .input-box input, .input-box select {
             height: 50px;
             width: 100%;
             padding: 0 15px;
@@ -52,7 +52,7 @@
             transition: border-color 0.3s;
         }
 
-        .input-box input:focus {
+        .input-box input:focus, .input-box select:focus {
             border-color: #4070f4;
             outline: none;
         }
@@ -95,6 +95,12 @@
             width: 100px;
             height: auto;
         }
+
+        /* Agreement Styles */
+        .agreement {
+            margin: 20px 0;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -113,6 +119,32 @@
             </div>
             <div class="input-box">
                 <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+            </div>
+            <div class="input-box">
+                <input type="text" name="address" placeholder="Address" required />
+            </div>
+            <div class="input-box">
+                <input type="tel" name="contact_no" placeholder="Contact Number" required />
+            </div>
+            <div class="input-box">
+                <input type="number" name="age" placeholder="Age" required />
+            </div>
+            <div class="input-box">
+                <select name="grade_level" required>
+                    <option value="" disabled selected>Select Grade Level</option>
+                    <option value="1">Grade 1</option>
+                    <option value="2">Grade 2</option>
+                    <option value="3">Grade 3</option>
+                    <option value="4">Grade 4</option>
+                    <option value="5">Grade 5</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                </select>
             </div>
             <div class="input-box button">
                 <input type="submit" value="Register" />
